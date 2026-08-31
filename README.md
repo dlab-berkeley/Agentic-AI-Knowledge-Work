@@ -1,113 +1,90 @@
-# D-Lab [WorkshopName] Workshop
+# D-Lab Agentic AI for Knowledge Work Workshop
 
-[![DataHub](https://img.shields.io/badge/launch-datahub-blue)](DATAHUB_LINK_HERE)
-[![Binder](https://mybinder.org/badge_logo.svg)](BINDER_LINK_HERE)
+[![Open Slides](https://img.shields.io/badge/open-slides%20-purple)](https://dlab-berkeley.github.io/Agentic-AI-Knowledge-Work/slides/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-This repository contains the materials for D-Lab [WorkshopName] workshop. 
+This repository contains the materials for D-Lab's Agentic AI for Knowledge Work workshop.
+
+In two hours, you'll hand the everyday work of organizing an event to an AI agent — writing the event doc, inviting the speaker, finding a time, emailing attendees, making a flyer, running a feedback survey — and learn where to keep a hand on the wheel. No code is written or read.
 
 ## Prerequisites
-We recommend attending [D-LabWorkshop1](D-LabWorkshop1Link),
-[D-LabWorkshop2](D-LabWorkshop2Link), and
-[AdditionalWorkshopsAsNeeded](LinksToWorkshops) prior to this workshop.
 
-Check out D-Lab’s [Workshop Catalog](https://dlab-berkeley.github.io/dlab-workshops/) to browse all workshops, see what’s running now, and review prerequisites.
+No programming experience is required. If you've used ChatGPT or a similar chatbot before, you have all the background you need.
+
+Check out D-Lab's [Workshop Catalog](https://dlab-berkeley.github.io/dlab-workshops/) to browse all workshops, see what's running now, and review prerequisites.
 
 ## Workshop Goals
 
-In this workshop, we provide [WorkshopGoal]. First, we’ll cover [Aim1]. Then,
-we’ll explore [Aim2]. 
+AI agents can now do real knowledge work: read your inbox, write to your Drive, manage your calendar, and talk to services like Qualtrics through their APIs. That power comes with a catch: you are handing over access to your accounts, and every detail you don't specify, the agent decides for you.
 
-_Only if necessary:_ If you are not familiar with material in
-[D-LabWorkshop1](D-LabWorkshop1Link), [D-LabWorkshop2](D-LabWorkshop2Link), and
-[AdditionalWorkshopsAsNeeded](LinksToWorkshops), we recommend attending those
-workshops first.
+In this workshop, we organize one event — a talk in the D-Lab Speaker Series — end to end, as a series of small tasks. Each task hands the agent a little more autonomy: first it drafts, then it sends, then it publishes, and finally it runs on its own as a reusable skill. Along the way we practice the habits that make agent-assisted work trustworthy: reading what access you grant, drafting before sending, verifying what was done, and writing rules the agent follows.
 
 ## Learning Objectives
 
 After this workshop, you will be able to:
 
-- [LearningObjective1].
-- [LearningObjective2].
-- [LearningObjective3].
+- Explain what an agent is, how it differs from a chatbot, and when to use which.
+- Connect an agent to Gmail, Google Calendar, and Google Drive, and explain what access that grants.
+- Set up written rules (`AGENTS.md`) and permission settings so the agent drafts before it sends.
+- Delegate document, spreadsheet, calendar, and email tasks to an agent and verify the results.
+- Connect an agent to a service with no plugin (Qualtrics) using an API token stored safely.
+- Install a published skill, and write your own to turn a recurring task into one command.
 
-This workshop does not cover the following:
+This workshop does not cover:
 
-- [NotCovered1]. These are covered in [D-LabWorkshopName](URL).
-- [NotCovered2]. These are covered in [D-LabWorkshopName](URL).
-
+- Programming. The agent writes any code it needs; we never look at it.
+- Agents for data analysis and research pipelines. See D-Lab's [Agentic AI for Research Workflows](https://github.com/dlab-berkeley/Agentic-AI-Research-Workflows) workshop.
 
 ## Installation Instructions
 
-We will use [RStudio/Python] to go through the workshop materials, which requires installation of [Software]. Complete the following steps:
+We use the **Codex app** (OpenAI's agent, bundled with the ChatGPT app). A free account is enough for the workshop. Before the session:
 
-1. This step(s) details software to download, with a link.
+1. Download and install the [Codex/ChatGPT app](https://chatgpt.com/codex) (macOS or Windows), and sign in with an OpenAI account (create a free one if needed).
 2. Download these workshop materials:
-    * Click the green "Code" button in the top right of the repository information.
-    * Click "Download Zip".
-    * Extract this file to a folder on your computer where you can easily access it (we recommend Desktop).
-3. Optional: if you’re familiar with git, you can instead clone this repository by opening a terminal and entering [GitCloneCommand].
+    - Click the green `Code` button in the top right of this page.
+    - Click `Download ZIP`.
+    - Extract the folder to your Desktop.
+3. Decide which **Google account** you'll connect to the agent. If you'd rather not connect your everyday account to an AI product, [create a fresh Gmail account](https://accounts.google.com/signup) now — Google may ask for phone verification, which is easier to do at home than in the workshop.
+4. Make sure you can log in to **Qualtrics**: Berkeley affiliates at [berkeley.qualtrics.com](https://berkeley.qualtrics.com); everyone else can [create a free account](https://www.qualtrics.com/free-account/).
 
-## Is [Language] not Working on Your Computer?
+## How the Workshop Runs
 
-If you do not have [Language] installed and the materials loaded on your
-workshop by the time it starts, we *strongly* recommend using the UC Berkeley
-Datahub to run the materials for these lessons. You can access the DataHub by
-clicking the following button:
+The workshop is hands-on: you follow along on your own machine, working in the Codex app.
 
-[![DataHub](https://img.shields.io/badge/launch-datahub-blue)](DATAHUB_LINK_HERE)
+First, open this [slide deck](https://dlab-berkeley.github.io/Agentic-AI-Knowledge-Work/slides/).
 
-The DataHub downloads this repository, along with any necessary packages, and
-allows you to run the materials in an RStudio instance on UC Berkeley's servers.
-No installation is necessary from your end - you only need an internet browser
-and a CalNet ID to log in. By using the DataHub, you can save your work and come
-back to it at any time. When you want to return to your saved work, just go
-straight to the [D-Lab DataHub](https://dlab.datahub.berkeley.edu), sign in, and
-you click on the `[Workshop-Name]` folder.
+The [lessons](lessons/) folder has the rest of the workshop materials. Keep them open in a browser tab and copy-paste the prompts as we go:
 
-If you don't have a Berkeley CalNet ID, you can still run these lessons in the cloud, by clicking this button:
+1. [Introduction and Setup](lessons/1_Introduction_and_Setup.md)
+2. [Plan the Talk](lessons/2_Plan_the_Talk.md)
+3. [Invite the Attendees](lessons/3_Invite_the_Attendees.md)
+4. [Publish](lessons/4_Publish.md)
+5. [Beyond Plugins, and Automation](lessons/5_Beyond_Plugins_and_Automation.md)
 
-[![Binder](https://mybinder.org/badge_logo.svg)](BINDER_LINK_HERE)
-
-By using this button, however, you cannot save your work.
-
-
-## Run the Code
-
-Now that you have all the required software and materials, you need to run the code:
-
-Provide instructions on running the code, including how to load relevant software (RStudio, Jupyter Notebooks, etc.) and which file to open up. See other repositories for examples.
-
-Additionally, provide instructions on how to run code once it’s open (running Jupyter cells, RMarkdown cells, etc.).
+The [packet](packet/) folder holds the starter materials the lessons use: an event template, an attendee list, a rules file, and a few calendar commitments for fresh accounts. The [skills](skills/) folder has a reference version of the skill you write in lesson 5.
 
 # Additional Resources
 
-Check out the following resources to learn more about [Workshop topics]:
-
-* [Resource1](LinkToResource1): _Explain Resource 1_
-* [Resource2](LinkToResource2): _Explain Resource 2_
-* [...]
-
+- [Codex plugins](https://platform.openai.com/codex/plugins) — the marketplace of one-click connections (Gmail, Drive, Slack, Notion, and more).
+- [AGENTS.md](https://agents.md/) — the convention for giving agents project rules.
+- [Qualtrics API documentation](https://api.qualtrics.com/) — what the agent reads in lesson 5.
+- [Google account permissions](https://myaccount.google.com/permissions) — where to review and revoke the access you grant today.
 
 # About the UC Berkeley D-Lab
 
-D-Lab works with Berkeley faculty, research staff, and students to advance data-intensive social science and humanities research. Our goal at D-Lab is to provide practical training, staff support, resources, and space to enable you to use R for your own research applications. Our services cater to all skill levels and no programming, statistical, or computer science backgrounds are necessary. We offer these services in the form of workshops, one-to-one consulting, and working groups that cover a variety of research topics, digital tools, and programming languages.  
+D-Lab works with Berkeley faculty, research staff, and students to advance data-intensive social science and humanities research. Our goal at D-Lab is to provide practical training, staff support, resources, and space to enable you to use data science in your own research applications. Our services cater to all skill levels and no programming, statistical, or computer science backgrounds are necessary. We offer these services in the form of workshops, one-to-one consulting, and working groups that cover a variety of research topics, digital tools, and programming languages.
 
 Visit the [D-Lab homepage](https://dlab.berkeley.edu/) to learn more about us. You can view our [calendar](https://dlab.berkeley.edu/events/calendar) for upcoming events, learn about how to utilize our [consulting](https://dlab.berkeley.edu/consulting) and [data](https://dlab.berkeley.edu/data) services, and check out upcoming [workshops](https://dlab.berkeley.edu/events/workshops).
 
-# Other D-Lab [Language] Workshops
+# Other D-Lab Workshops
 
-Here are other [Language] workshops offered by the D-Lab:
+Interested in the tools behind today's workshop?
 
-## Basic Competency
-
-**Provide a list of workshops here.**
-
-## Intermediate/Advanced Competency
-
-**Provide a list of workshops here.**
+- [Agentic AI for Research Workflows](https://github.com/dlab-berkeley/Agentic-AI-Research-Workflows)
+- [GPT Fundamentals](https://github.com/dlab-berkeley/GPT-Fundamentals)
+- [Python Fundamentals](https://github.com/dlab-berkeley/Python-Fundamentals)
 
 # Contributors
 
-**Provide a list of contributors here, with links to their webpages (D-Lab or
-private).**
+- [Pratik Sachdeva](https://dlab.berkeley.edu/people/pratik-sachdeva)
+- AI Agents: Codex and Claude Code
