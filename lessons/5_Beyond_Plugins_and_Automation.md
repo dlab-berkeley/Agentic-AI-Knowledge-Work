@@ -12,7 +12,7 @@
 🥊 **Challenge**: Interactive exercise. We'll work through these in the workshop!<br>
 💡 **Tip**: How to do something a bit more efficiently or effectively.<br>
 ⚠️ **Warning:** Heads-up about tricky stuff or common mistakes.<br>
-✅ **Expected result**: What you should see if things went right. Small differences are fine; big ones are worth investigating.<br>
+✅ **Expected result**: What you should see if things went right.<br>
 
 ### Sections
 1. [When There Is No Plugin](#section1)
@@ -26,7 +26,9 @@
 
 # When There Is No Plugin
 
-Gmail, Calendar, and Drive had one-click plugins. Most tools you use don't. Qualtrics — the survey tool Berkeley licenses for the whole campus — is one of them.
+The key to having an agent take actions for you is that it has a way of interfacing with the relevant product. OpenAI facilitates this in Codex with plugins: we installed the Gmail, Drive, and Calendar plugins. These plugins exposed the necessary functons the agent needed to take actions and complete tasks.
+
+What if there is no plugin? What do we do? 
 
 It doesn't matter. Almost every web service has an **API**: a way for programs to talk to it. Qualtrics publishes one, with documentation. If you give the agent a key to the door and tell it where the documentation is, it figures out the rest. You never see the code it writes to do so.
 
@@ -84,7 +86,7 @@ This is the most complex thing the agent has done today. Watch the steps: it rea
 
 🔔 **Question:** Did the agent get it right the first time? If not, what did it do about it?
 
-## 🥊 Challenge 4: Fill Out Your Neighbor's Survey
+## 🥊 Challenge 5: Fill Out Your Neighbor's Survey
 
 Get the survey link from the people near you — the same ones you invited — and fill out theirs. Make up answers. Be kind, or don't.
 
