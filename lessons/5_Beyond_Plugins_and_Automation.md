@@ -30,28 +30,42 @@ The key to having an agent take actions for you is that it has a way of interfac
 
 What if there is no plugin? What do we do? 
 
-It doesn't matter. Almost every web service has an **API**: a way for programs to talk to it. Qualtrics publishes one, with documentation. If you give the agent a key to the door and tell it where the documentation is, it figures out the rest. You never see the code it writes to do so.
+In many cases, we can make us of an API. An API - Application Programming Interface - is effectively a set of standardized rules for how to engage with a particular database or product.
 
-That's the point of this lesson: **plugins are a convenience, not a boundary.**
+# What is an API?
+
+An API is like a restaurant server. When you go to a restaurant, you don't place your order by going directly to the chefs in the kitchen. That would be too chaotic.
+
+![](../images/apis.png)
+
+Instead, you interact with a restaurant server. You give the server a set of choices, which are standardized by a restaurant menu. The restaurant server then relays your choices to the kitchen, you make your food, and the server then gets the food to you.
+
+There's a system in place to facilitate placing many orders in the kitchen, so that the kitchen is not chaotic and overwhelmed.
+
+Here, we're going to be working with Qualtrics. Qualtrics (the kitchen) creates an API (the restaurant server) with a set of API functions (the restaurant menu). To interact with Qualtrics programmatically, you use a set of functions (the menu) to ask the API to produce actions or retrieve data that you need.
+
+As it turns our, your agent can do this too.
 
 <a id='section2'></a>
 
 # Your Qualtrics Token
 
-An **API token** is a password for programs. You generate it once, and anything that has it can act as you in Qualtrics.
+You can't just start querying Qualtrics' servers via the API. You need to create an API token. An **API token** is a password for an API. It identifies you, so that Qualtrics can keep track of every query you make. You generate it once, and anything that has it can act as you in Qualtrics.
 
 1. Log in to Qualtrics (Berkeley affiliates: [berkeley.qualtrics.com](https://berkeley.qualtrics.com); otherwise, the free account you created before the workshop).
-2. Click your account icon (top right) → `Account Settings` → `Qualtrics IDs`.
-3. Under `API`, click `Generate Token`. Copy it.
+2. Click your account icon (top right), select `Account Settings`.
+![](../images/qualtrics-account-settings.png)
+3. `Qualtrics IDs`.
+3. Under `API`, click `Generate Token`.
+4. Copy the following: your API Token and the Datacenter ID. It's also helpful to note your User ID.
+![](../images/qualtrics-api.png)
 4. On the same page, note your **Datacenter ID** (something like `iad1`).
-
-<!-- TODO(screenshot): the Qualtrics IDs page with the API token box and Datacenter ID visible.
-     Save as images/qualtrics_ids.png and uncomment: -->
-<!-- ![The Qualtrics IDs page: API token and Datacenter ID](../images/qualtrics_ids.png) -->
 
 ⚠️ **Warning:** If there is no `Generate Token` button, your account type doesn't have API access turned on. Pair up with someone who does for the rest of this section.
 
-Now, where does the token go? **Not into the chat.** Anything you paste into a conversation is stored with that conversation. Instead, we put it in a file the agent can read. Start a **new conversation**:
+⚠️ **Warning:** Do not share your API token with anyone! We have blocked the API tokens above. It is very easy to leak your API token. Anyone who has access to it can take actions on your Qualtrics account.
+
+What do we do with the token? **Do not put into the chat.** Anything you paste into a conversation is stored with that conversation, and your API key should always stay private. Instead, we put it in a file the agent can read. Start a **new conversation**:
 
 ```
 Create a file called credentials.txt in this project with exactly this content:

@@ -56,9 +56,9 @@ First, open this [slide deck](https://dlab-berkeley.github.io/Agentic-AI-Knowled
 The [lessons](lessons/) folder has the rest of the workshop materials. Keep them open in a browser tab and copy-paste the prompts as we go:
 
 1. [Introduction and Setup](lessons/1_Introduction_and_Setup.md)
-2. [Plan the Talk](lessons/2_Plan_the_Talk.md)
+2. [Plan the Talk](lessons/2_Plan_a_Talk.md)
 3. [Invite the Attendees](lessons/3_Invite_the_Attendees.md)
-4. [Publish](lessons/4_Publish.md)
+4. [Publish Your Event](lessons/4_Publish_Your_Event.md)
 5. [Beyond Plugins, and Automation](lessons/5_Beyond_Plugins_and_Automation.md)
 
 The [packet](packet/) folder holds the starter materials the lessons use: an event template, an attendee list, a rules file, and a few calendar commitments for fresh accounts. The [skills](skills/) folder has a reference version of the skill you write in lesson 5.
