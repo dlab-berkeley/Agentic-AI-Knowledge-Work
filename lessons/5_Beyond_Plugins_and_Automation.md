@@ -1,4 +1,4 @@
-# Agentic AI for Knowledge Work: Beyond Plugins, and Automation
+# Agentic AI for Knowledge Work: Beyond Plugins and Automation
 
 ### Learning Objectives
 
@@ -16,56 +16,61 @@
 
 ### Sections
 1. [When There Is No Plugin](#section1)
-2. [Your Qualtrics Token](#section2)
-3. [Create the Survey](#section3)
-4. [Collect Responses](#section4)
-5. [Write Your Own Skill](#section5)
-6. [Where to Go From Here](#section6)
+2. [What Is an API?](#section2)
+3. [Your Qualtrics Token](#section3)
+4. [Create the Survey](#section4)
+5. [Collect Responses](#section5)
+6. [Write Your Own Skill](#section6)
+7. [More Plugins](#section7)
 
 <a id='section1'></a>
 
 # When There Is No Plugin
 
-The key to having an agent take actions for you is that it has a way of interfacing with the relevant product. OpenAI facilitates this in Codex with plugins: we installed the Gmail, Drive, and Calendar plugins. These plugins exposed the necessary functons the agent needed to take actions and complete tasks.
+The key to having an agent take actions for you is that it has a way of interfacing with the relevant product. Codex does this with plugins: in lesson 1 we installed the Gmail, Google Drive, and Google Calendar plugins. Those plugins gave the agent the functions it needed to complete tasks.
 
-What if there is no plugin? What do we do? 
+What if there is no plugin? What do we do?
 
-In many cases, we can make us of an API. An API - Application Programming Interface - is effectively a set of standardized rules for how to engage with a particular database or product.
+In many cases, we can make use of an API. An API, or Application Programming Interface, is effectively a set of standardized rules for how to engage with a particular database or product.
 
-# What is an API?
+<a id='section2'></a>
+
+# What Is an API?
 
 An API is like a restaurant server. When you go to a restaurant, you don't place your order by going directly to the chefs in the kitchen. That would be too chaotic.
 
 ![](../images/apis.png)
 
-Instead, you interact with a restaurant server. You give the server a set of choices, which are standardized by a restaurant menu. The restaurant server then relays your choices to the kitchen, you make your food, and the server then gets the food to you.
+Instead, you interact with a restaurant server. You give the server a set of choices, which are standardized by a restaurant menu. The server relays your choices to the kitchen, the kitchen makes your food, and the server brings it to you.
 
 There's a system in place to facilitate placing many orders in the kitchen, so that the kitchen is not chaotic and overwhelmed.
 
-Here, we're going to be working with Qualtrics. Qualtrics (the kitchen) creates an API (the restaurant server) with a set of API functions (the restaurant menu). To interact with Qualtrics programmatically, you use a set of functions (the menu) to ask the API to produce actions or retrieve data that you need.
+Here, we're going to be working with Qualtrics. Qualtrics (the kitchen) creates an API (the restaurant server) with a set of API functions (the restaurant menu). To interact with Qualtrics programmatically, you use a set of functions (the menu) to ask the API to produce actions or retrieve data that you need (your food).
 
-As it turns our, your agent can do this too.
+As it turns out, your agent can do this too.
 
-<a id='section2'></a>
+<a id='section3'></a>
 
 # Your Qualtrics Token
 
 You can't just start querying Qualtrics' servers via the API. You need to create an API token. An **API token** is a password for an API. It identifies you, so that Qualtrics can keep track of every query you make. You generate it once, and anything that has it can act as you in Qualtrics.
 
 1. Log in to Qualtrics (Berkeley affiliates: [berkeley.qualtrics.com](https://berkeley.qualtrics.com); otherwise, the free account you created before the workshop).
-2. Click your account icon (top right), select `Account Settings`.
-![](../images/qualtrics-account-settings.png)
-3. `Qualtrics IDs`.
-3. Under `API`, click `Generate Token`.
-4. Copy the following: your API Token and the Datacenter ID. It's also helpful to note your User ID.
-![](../images/qualtrics-api.png)
-4. On the same page, note your **Datacenter ID** (something like `iad1`).
+2. Click your account icon in the top right and select `Account Settings`.
 
-⚠️ **Warning:** If there is no `Generate Token` button, your account type doesn't have API access turned on. Pair up with someone who does for the rest of this section.
+   ![](../images/qualtrics-account-settings.png)
 
-⚠️ **Warning:** Do not share your API token with anyone! We have blocked the API tokens above. It is very easy to leak your API token. Anyone who has access to it can take actions on your Qualtrics account.
+3. Select `Qualtrics IDs`.
+4. Under `API`, click `Generate Token`.
+5. Copy your **API Token** and your **Datacenter ID** (something like `iad1`). It's also helpful to note your User ID.
 
-What do we do with the token? **Do not put into the chat.** Anything you paste into a conversation is stored with that conversation, and your API key should always stay private. Instead, we put it in a file the agent can read. Start a **new conversation**:
+   ![](../images/qualtrics-api.png)
+
+⚠️ **Warning:** If there is no `Generate Token` button, your account type doesn't have API access turned on. Pair up with someone who does for the rest of this lesson.
+
+⚠️ **Warning:** Do not share your API token with anyone! We have blocked out the API tokens above. It is very easy to leak your API token. Anyone who has access to it can take actions on your Qualtrics account.
+
+What do we do with the token? **Do not paste it into the chat.** Anything you paste into a conversation is stored with that conversation, and your API key should always stay private. Instead, we put it in a file the agent can read. Start a **new conversation**:
 
 ```
 Create a file called credentials.txt in this project with exactly this content:
@@ -76,13 +81,15 @@ QUALTRICS_DATACENTER=PASTE_YOUR_DATACENTER_HERE
 Don't fill in the values; I'll do that myself.
 ```
 
-Open `credentials.txt` in any text editor (ask the agent for the path), replace the two placeholders, and save. The `AGENTS.md` rule from lesson 1 already covers the rest: the agent reads this file when it needs to, and never prints it.
+Open `credentials.txt` in any text editor (ask the agent for the path), replace the two placeholders, and save. The `AGENTS.md` rule from lesson 1 covers the rest: the agent reads this file when a task needs it, never prints its contents, and the key stays private.
 
-💡 **Tip:** For your own work, a password manager is nicer than a text file. 1Password (paid) can hand secrets to an agent with a fingerprint prompt each time. Free managers like Bitwarden can do similar things with more setup. A text file in a folder you control is the simplest thing that works — just don't share the folder.
+💡 **Tip:** For your own work, a password manager is nicer than a text file. 1Password, a paid service, can hand secrets to an agent with a fingerprint prompt each time. A text file in a folder you control is the simplest thing that works, as long as you never share the file.
 
-<a id='section3'></a>
+<a id='section4'></a>
 
 # Create the Survey
+
+Now, we're going to create a survey from scratch using the Qualtrics API.
 
 ```
 Using the Qualtrics API (credentials in credentials.txt; documentation at https://api.qualtrics.com), create a feedback survey called "Speaker Series Feedback - [TALK TITLE]" with three questions:
@@ -94,7 +101,7 @@ Using the Qualtrics API (credentials in credentials.txt; documentation at https:
 Activate it, get the anonymous survey link, and add the link to the bottom of the event doc. Show me the link.
 ```
 
-This is the most complex thing the agent has done today. Watch the steps: it reads the documentation, tries a request, maybe gets an error, reads more, tries again. You'll see it ask for approval to run commands. Those commands contain your token — that's why it lives in a file, not in the chat.
+This is the most complex thing the agent has done today. Watch the steps: it reads the documentation, tries a request, maybe gets an error, reads more, tries again. You'll see it ask for approval to run commands. Those commands contain your token.
 
 ✅ **Expected result:** A new survey in your Qualtrics account (check in the browser), and a link in the event doc that opens it.
 
@@ -102,29 +109,31 @@ This is the most complex thing the agent has done today. Watch the steps: it rea
 
 ## 🥊 Challenge 5: Fill Out Your Neighbor's Survey
 
-Get the survey link from the people near you — the same ones you invited — and fill out theirs. Make up answers. Be kind, or don't.
+Swap survey links with a neighbor and fill out each other's surveys.
 
-<a id='section4'></a>
+<a id='section5'></a>
 
 # Collect Responses
 
+Now, we're going to ask the agent to collect new responses. Use the following prompt:
+
 ```
-Download all responses to the feedback survey. Summarize them: the average usefulness score, the main themes in the open answers, and every speaker suggestion. Add the summary as a new section at the bottom of the event doc.
+Download all responses to the feedback survey. Summarize them: the average usefulness score, the main themes in the open answers, and every speaker suggestion. Add the summary as a new section at the bottom of the event document.
 ```
 
 ✅ **Expected result:** A summary of your neighbors' responses in the event doc.
 
-That's the full loop, without a plugin: create, distribute, collect, summarize.
+What do you find? Does the analysis look correct?
 
-⚠️ **Warning:** When you're done with the workshop, go back to `Qualtrics IDs` and generate a new token. That invalidates the old one. Do the same for any token you hand to any agent, ever, when the task is over.
-
-<a id='section5'></a>
+<a id='section6'></a>
 
 # Write Your Own Skill
 
-Look at what you've done today: invite, check for replies, update a sheet, summarize a survey. Next week, you'd want to do the "check on things" part again. And the week after.
+We will conclude this workshop by creating our own skill: a repeatable set of instructions the agent can run on request.
 
-In lesson 4 you installed someone else's skill. Now write your own — by describing it.
+The skill will check our inbox for event RSVPs, update the dataset we're using to track replies, and draft replies to attendees. The nature of this task is multi-step and bespoke, which makes it suitable for our own skill.
+
+Use the following prompt, and take stock of everything it's asking the agent to do:
 
 ```
 Create a skill called event-status in ~/.codex/skills/event-status/SKILL.md. When I run it, it should:
@@ -138,47 +147,28 @@ Create a skill called event-status in ~/.codex/skills/event-status/SKILL.md. Whe
 Include the rule that it never sends anything without my approval. Then show me the file.
 ```
 
-Read `SKILL.md`. It's plain English. Change anything you'd do differently.
+Read through `SKILL.md`. The agent simply translated your instructions into a detailed, repeatable workflow.
 
-Now, the payoff. Everyone reply to one more invitation in your inbox — a new yes or a change of mind. Then:
+Go ahead and run the skill (if you have no new replies, ask a neighbor to reply to your event invitation).
 
 ```
 Run the event-status skill.
 ```
 
-✅ **Expected result:** A five-line report: one new reply found, one row updated, nothing sent.
+✅ **Expected result:** A short report of what changed, and nothing sent.
 
-🔔 **Question:** This took you one prompt to write and one word to run. What's the recurring chore in your own week that you'd write a skill for first?
+🔔 **Question:** Can you think of any recurring chores you have to do for which you can create a skill?
 
 💡 **Tip:** A reference version of this skill is in the workshop materials at `skills/event-status/SKILL.md`. Compare it with yours.
 
-<a id='section6'></a>
+<a id='section7'></a>
 
-# Where to Go From Here
+# More Plugins
 
-Today you connected three plugins, one API, and wrote one skill. The pattern was the same every time:
-
-1. **Give the agent context**: a template, a sheet, a rules file.
-2. **Connect the tools** it needs: a plugin if one exists, an API key if not.
-3. **Draft, review, approve** for anything that leaves your account.
-4. **Verify** what it did.
-5. **Write it down as a skill** once you'd do it again.
-
-## 🥊 Take-Home: Your Own Recurring Task
-
-Pick one recurring chore in your own work — literature alerts, weekly status emails, collecting forms, scheduling office hours. Sketch it as the five steps above. What would the context be? Which tools? Where does the draft-and-approve step go? Then, at home, try building it.
-
-## More Plugins
-
-The Codex plugin marketplace ([platform.openai.com/codex/plugins](https://platform.openai.com/codex/plugins)) has many more connections: Slack, Notion, Microsoft Outlook and Teams, GitHub, and dozens of others. Everything you learned today — rules, permissions, draft-first, verify — applies to every one of them.
-
-- Bring your own workflow to [D-Lab consulting](https://dlab.berkeley.edu/consulting).
-- For agents and research data, see [Agentic AI for Research Workflows](https://github.com/dlab-berkeley/Agentic-AI-Research-Workflows).
+The [plugin catalog](https://learn.chatgpt.com/docs/plugins), which you can browse from the `Plugins` tab in the app, has many more connections: Slack, Notion, Figma, GitHub, and dozens of others. Everything we learned in this workshop applies to those plugins as well.
 
 # Key Points
 
-- No plugin is not a blocker. An API token and a link to the documentation are enough.
-- Credentials go in a file the agent can read, never into the chat. Revoke them when you're done.
-- An agent can run a full survey loop: create, link, collect, summarize.
-- A **skill** you write yourself turns today's prompts into one reusable command.
-- The pattern transfers: context, tools, draft-and-approve, verify, write it down.
+- You can use an API to access an application that doesn't have a plugin.
+- API credentials should always go into a file; never share the credentials.
+- You can create your own skill for repeatable workflows that you use in your projects.
