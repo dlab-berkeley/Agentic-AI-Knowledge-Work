@@ -2,6 +2,7 @@
 
 ### Learning Objectives
 
+- Have an agent research a topic online and check its sources.
 - Delegate document creation to an agent and review the result.
 - Send an email with an agent.
 - Use an agent to find free time on a calendar and create an event.
@@ -27,23 +28,38 @@
 
 Today's scenario: you are organizing a talk in the **D-Lab Speaker Series**. Every task in this workshop is something you might actually do while planning an event. An agent can handle many of these tasks, to varying degrees.
 
-First, you will choose a "speaker". For the purposes of this workshop, the speaker has to be someone who can actually reply to an email in the next hour or so, so pick one of these:
+First, you will choose a "speaker". For the purposes of this workshop, the invitation has to go to someone who can actually reply to an email in the next hour or so, so pick one of these:
 
-- **Someone sitting near you.** Ask for their email, and have them pretend to be your speaker. Make sure they're OK with receiving an email from an agent.
 - **A fake speaker.** Choose a `[SPEAKER NAME]`. Then use the address `dlab-ai-workshop+[SPEAKER NAME]@berkeley.edu` (no spaces). We control this inbox, so we can respond to some of the invitations.
+- **The instructor.** Your instructor has agreed to be a speaker today. Use the address `dlab-ai-workshop+[INSTRUCTOR LAST NAME]@berkeley.edu` (no spaces).
+- **Someone sitting next to you**, if you're in person and they're OK with receiving an email from an agent. Have them pretend to be your speaker.
 
-⚠️ **Warning:** **Do not invite someone who isn't in the room!** This is not a real event. Today's emails are just practice.
+⚠️ **Warning:** **Do not email anyone who isn't in the workshop!** This is not a real event. Today's emails are just practice.
 
 <a id='section2'></a>
 
 # The Event Document
 
-Along with your speaker, choose a topic for the event. It can be silly; just make it distinct. For the next step, you should have the following on hand:
+## Find a Theme
+
+Next, you need a topic for the talk. Instead of inventing one, have the agent look at what people are actually working on. Pick an area you care about. Start a **new conversation**:
+
+```
+Search the web for recent research on [A TOPIC YOU CARE ABOUT]. Suggest three possible talk themes for a speaker in that area. For each one, say in two sentences why it would make a good talk and give the link you based it on. Don't create any files yet.
+```
+
+Pick one theme. Then open one of the links. Does the page say what the agent says it says?
+
+💡 **Tip:** If your speaker is the instructor, you can search for their work instead of a topic. They are in the room to tell you what the agent got wrong.
+
+## Fill In the Template
+
+For the next step, you should have the following on hand:
 - `[SPEAKER NAME]`: The name of your speaker.
 - `[SPEAKER EMAIL]`: Your speaker's email.
-- `[TOPIC]`: The topic of the talk.
+- `[TOPIC]`: The theme you picked.
 
-Now, start a **new conversation**. Copy the following prompt, filling in the information above:
+Copy the following prompt, filling in the information above:
 
 ```
 Read packet/event_template.md. Fill it in for a talk by [SPEAKER NAME] ([SPEAKER EMAIL]) on [TOPIC]. Write a short bio, a title, and an abstract. Leave the date and time blank for now. I am the organizer. Use my name and email.
@@ -57,9 +73,7 @@ The agent will ask for approval before it touches your Drive. Read what it propo
 
 🔔 **Question:** Did the agent get your name and email right? If so, how did it know this information?
 
-🔔 **Question:** The agent wrote a bio and an abstract from two sentences of input. Is anything in the doc untrue? How would a reader know which parts were invented?
-
-💡 **Tip:** If the speaker is a public researcher, the agent can search the web for their actual work. Add "Look up their recent work online first" to the prompt.
+🔔 **Question:** The agent wrote a bio and an abstract from a name and a theme. Is anything in the doc untrue? How would a reader know which parts were invented?
 
 <a id='section3'></a>
 
@@ -71,7 +85,17 @@ Next, we're actually going to send an email. Use the following prompt:
 Draft an email to the speaker inviting them to give this talk, based on the event document. Keep it under 150 words. Mention that we'll confirm the date once we've checked calendars. Show me the draft and wait for my approval before sending.
 ```
 
-Read the draft. Change anything you like, in plain language. Then:
+Read the draft. Then ask the agent to critique it:
+
+```
+Critique this draft. What would make it better?
+```
+
+Ask "What else?" twice. It always finds something. Now decide which of its suggestions you take, and ask for those changes in plain language.
+
+💡 **Tip:** In open-ended tasks, the agent has no sense of `done'. Ask for problems and it finds problems. It is easier to define success when the task is well defined: under 150 words, says the date is unconfirmed, and so on.
+
+Then:
 
 ```
 Send it.
@@ -101,11 +125,13 @@ If you made a fresh account, then your calendar will be empty. Ask the agent to 
 Read packet/calendar_commitments.md and add each commitment to my calendar.
 ```
 
-Next, use the following prompt:
+The same file also lists the organizer's preferences: which days are best, how much buffer to leave, when the room is booked. Some of them pull in different directions. Before you ask the agent, look at your calendar and pick the slot you would choose.
 
 ```
-Look at my calendar for the next three weeks. Suggest three slots for a 90-minute talk on a weekday afternoon where I am free. Tell me what you had to work around.
+Read the preferences in packet/calendar_commitments.md. Look at my calendar for the next three weeks and find every 90-minute slot that fits. Rank the top three.
 ```
+
+Compare its ranking with your pick. If you disagree, whose reasoning holds up?
 
 Pick one slot. Then fill it in below and use the following prompt:
 
@@ -135,12 +161,18 @@ Scroll back through this lesson's conversations. List three things the agent dec
 
 - The abstract: what claims did it make about the talk?
 - The invitation: what tone, what sign-off, what subject line?
-- The calendar: what counts as "afternoon"? Did it leave buffer time around your other meetings?
+- The calendar: how did it weigh the preferences against each other? What counts as "afternoon"?
+- Your own rule from lesson 1: did the agent follow it?
+
+You also stopped the critique loop on the invitation. What made you stop?
 
 How would you do the above steps differently in the real world? Where would you exert more control, and where would you cede decision-making to the agent? *Would you use the agent at all?*
+
+Share one of your three, in the chat or out loud.
 
 # Key Points
 
 - An agent can take actions in your email, documents, and calendar.
 - Agents can both read and write in your workspaces, and you can set rules for how they do so.
 - Every prompt leaves decisions unspecified. Agents will often make assumptions in these cases.
+- The agent has no sense of done. You decide when work is good enough.

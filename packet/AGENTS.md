@@ -2,7 +2,7 @@
 
 ## Email and calendar
 - Always show me a draft before sending any email or calendar invite, and wait for my approval.
-- Only send email to addresses on the attendee sheet or to the confirmed speaker.
+- Only send email to addresses on the attendee sheet or to the speaker's address in the event doc.
 - Never delete or archive anything without asking.
 - Only read emails that mention "Speaker Series" unless I say otherwise.
 

@@ -5,6 +5,8 @@
 - Connect an agent to a service that has no plugin, using an API token.
 - Store a credential in a file the agent can use without revealing it.
 - Create and collect a survey through an agent.
+- Have an agent fill out a web form through its browser.
+- Decide how much autonomy a task needs.
 - Write a skill that turns today's tasks into one reusable command.
 
 ### Icons Used in This Notebook
@@ -19,9 +21,12 @@
 2. [What Is an API?](#section2)
 3. [Your Qualtrics Token](#section3)
 4. [Create the Survey](#section4)
-5. [Collect Responses](#section5)
-6. [Write Your Own Skill](#section6)
-7. [More Plugins](#section7)
+5. [Use the Browser](#section5)
+6. [Collect Responses](#section6)
+7. [How Much Agent Does the Task Need?](#section7)
+8. [Write Your Own Skill](#section8)
+9. [More Plugins](#section9)
+10. [🎬 Demo: More Compute, Better Answer?](#section10)
 
 <a id='section1'></a>
 
@@ -29,9 +34,12 @@
 
 The key to having an agent take actions for you is that it has a way of interfacing with the relevant product. Codex does this with plugins: in lesson 1 we installed the Gmail, Google Drive, and Google Calendar plugins. Those plugins gave the agent the functions it needed to complete tasks.
 
-What if there is no plugin? What do we do?
+What if there is no plugin? There are two ways forward.
 
-In many cases, we can make use of an API. An API, or Application Programming Interface, is effectively a set of standardized rules for how to engage with a particular database or product.
+- **The API.** Most services have one. It is built for programs, so it is fast and reliable. This is the main path in this lesson.
+- **The browser.** The agent opens the web page and clicks through it, the way you would. It works on anything with a web page, and it is the slowest and least reliable way to do a task. We try it in section 5.
+
+An API, or Application Programming Interface, is effectively a set of standardized rules for how to engage with a particular database or product.
 
 <a id='section2'></a>
 
@@ -66,7 +74,7 @@ You can't just start querying Qualtrics' servers via the API. You need to create
 
    ![](../images/qualtrics-api.png)
 
-⚠️ **Warning:** If there is no `Generate Token` button, your account type doesn't have API access turned on. Pair up with someone who does for the rest of this lesson.
+⚠️ **Warning:** If there is no `Generate Token` button, your account type doesn't have API access turned on. Pair up with someone who does for the rest of this lesson: in person, work on their screen; on Zoom, follow the instructor's screen share. Never share a token.
 
 ⚠️ **Warning:** Do not share your API token with anyone! We have blocked out the API tokens above. It is very easy to leak your API token. Anyone who has access to it can take actions on your Qualtrics account.
 
@@ -107,25 +115,78 @@ This is the most complex thing the agent has done today. Watch the steps: it rea
 
 🔔 **Question:** Did the agent get it right the first time? If not, what did it do about it?
 
-## 🥊 Challenge 5: Fill Out Your Neighbor's Survey
-
-Swap survey links with a neighbor and fill out each other's surveys.
-
 <a id='section5'></a>
+
+# Use the Browser
+
+Your survey link opens a web page. Qualtrics has an API for creating surveys, but a respondent just clicks through a form. That is a job for the browser.
+
+Codex has a **Browser plugin**: a separate browser the agent controls, with none of your logins in it. Install it from the `Plugins` page.
+
+## 🥊 Challenge 5: Fill Out Each Other's Surveys
+
+Share your survey link. On Zoom, post it in the chat. In person, trade with the people near you. Your instructor has already shared one, so there is always something to fill out.
+
+Pick two links you haven't done yet, favoring ones nobody has claimed. Fill out the first one yourself, by hand. Time it. Then hand the second one to the agent:
+
+```
+Using the browser, open [SURVEY LINK] and fill out the survey as an attendee who found the talk fairly useful. Show me the answers before you submit.
+```
+
+Watch it work. It looks at the page, decides what to click, types, and looks again. It is slower than the API, and it may get stuck. That is the trade: the browser works on anything with a web page, and it is the slowest and least reliable way to do a task.
+
+✅ **Expected result:** A new response in each survey you filled out. Tell the owners.
+
+🔔 **Question:** You just did the same task twice, once by hand and once through an agent. Which was faster? When would the agent's way be worth it anyway?
+
+🔔 **Question:** The agent just filled out a survey as a made-up attendee. For a practice survey, that's fine. Where is the line for a real one?
+
+💡 **Tip:** If the Browser plugin isn't available on your account, fill out the second survey by hand too. The next section needs a few responses either way.
+
+<a id='section6'></a>
 
 # Collect Responses
 
 Now, we're going to ask the agent to collect new responses. Use the following prompt:
 
+If your survey has no responses yet, fill it out yourself twice with different answers. It's practice data. Then:
+
 ```
 Download all responses to the feedback survey. Summarize them: the average usefulness score, the main themes in the open answers, and every speaker suggestion. Add the summary as a new section at the bottom of the event document.
 ```
 
-✅ **Expected result:** A summary of your neighbors' responses in the event doc.
+✅ **Expected result:** A summary of the responses to your survey in the event doc.
 
-What do you find? Does the analysis look correct?
+Open the survey results in Qualtrics. Does the average the agent reported match? Did it count every response?
 
-<a id='section6'></a>
+<a id='section7'></a>
+
+# How Much Agent Does the Task Need?
+
+Look back at the day. Each lesson gave the agent a little more room:
+
+1. **A chatbot.** It writes; you copy the result somewhere yourself. It never touches your accounts.
+2. **An agent, approving each step.** It works in your email, calendar, and files, and you read before it acts. Lessons 2 and 3.
+3. **An agent with a skill.** The same task, repeated, with the rules written down. Lesson 4, and the next section.
+4. **An agent on autopilot.** It runs on a schedule without you. Not today.
+5. **Many agents, high effort.** Several agents on one task, or the effort setting turned all the way up. The demo at the end.
+
+Each rung costs more: more access, more usage, more that can go wrong unseen. The principle we suggest is **least agency necessary**. Give the agent the least autonomy that gets the job done, and move up one rung only after you have watched it do the job well at the current one.
+
+Four questions help you place a task:
+
+1. Does it touch your accounts or files? If not, a chatbot is enough.
+2. Can you check the result? If you can't tell good from bad, don't automate it yet.
+3. How bad is a mistake, and can you undo it? Email can't be unsent. Keep approval on.
+4. Will you do it again? Once is a prompt. Every week is a skill.
+
+## 🥊 Challenge 6: Place Your Own Chore
+
+Pick one recurring chore from your own work. Walk it through the four questions. Which rung does it land on? What would have to be true before you moved it up one?
+
+Share yours: post the chore and its rung in the chat, or say it out loud. We'll pick a few to talk through.
+
+<a id='section8'></a>
 
 # Write Your Own Skill
 
@@ -149,7 +210,7 @@ Include the rule that it never sends anything without my approval. Then show me 
 
 Read through `SKILL.md`. The agent simply translated your instructions into a detailed, repeatable workflow.
 
-Go ahead and run the skill (if you have no new replies, ask a neighbor to reply to your event invitation).
+Go ahead and run the skill. If you have no new replies, ask someone who has your invitation to reply, in the chat or out loud.
 
 ```
 Run the event-status skill.
@@ -157,18 +218,44 @@ Run the event-status skill.
 
 ✅ **Expected result:** A short report of what changed, and nothing sent.
 
-🔔 **Question:** Can you think of any recurring chores you have to do for which you can create a skill?
+Now change it yourself. Open `SKILL.md` in a text editor and edit one step. Make the report three lines instead of five, or add a step that lists the dietary needs of everyone who said yes. Run the skill again.
 
 💡 **Tip:** A reference version of this skill is in the workshop materials at `skills/event-status/SKILL.md`. Compare it with yours.
 
-<a id='section7'></a>
+<a id='section9'></a>
 
 # More Plugins
 
 The [plugin catalog](https://learn.chatgpt.com/docs/plugins), which you can browse from the `Plugins` tab in the app, has many more connections: Slack, Notion, Figma, GitHub, and dozens of others. Everything we learned in this workshop applies to those plugins as well.
+
+<a id='section10'></a>
+
+# 🎬 Demo: More Compute, Better Answer?
+
+Lesson 1 introduced the effort setting. Codex can also split a task across several **subagents** that work in parallel and report back. When you don't know a field well, it is tempting to turn everything up. Does it help?
+
+The instructor runs the feedback summary from section 6 three ways, on the same responses:
+
+1. The prompt as written, at the default effort.
+2. The same prompt, with effort set to the maximum.
+3. Split across subagents:
+
+```
+Spawn three subagents. Each reads all the feedback survey responses independently and writes its own summary of the themes. Then compare the three summaries: where do they agree, and where do they read the responses differently?
+```
+
+Watch the clock and compare the three outputs.
+
+✅ **Expected result:** On ten responses, the three summaries say the same thing. The subagent run takes several times longer.
+
+More compute helps when the task is big and the pieces are independent: three hundred responses, or a dozen documents to read. On ten responses it costs time and shows nothing new. Knowing how much agent a task needs is the skill you leave with.
+
+⚠️ **Warning:** Subagents need an eligible ChatGPT plan and use up your limits much faster, which is why this is a demo.
 
 # Key Points
 
 - You can use an API to access an application that doesn't have a plugin.
 - API credentials should always go into a file; never share the credentials.
 - You can create your own skill for repeatable workflows that you use in your projects.
+- Give the agent the least autonomy that gets the job done, and move up only after you have watched it work.
+- More compute is not more answer. Match the effort to the size of the task.

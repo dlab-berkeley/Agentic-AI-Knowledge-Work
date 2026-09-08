@@ -1,16 +1,16 @@
-name,email,affiliation,dietary_needs
-Alice Nakamura,dlab-ai-workshop+alice@berkeley.edu,Sociology,vegetarian
-Ben Okafor,dlab-ai-workshop+ben@berkeley.edu,Public Health,none
-Carmen Delgado,dlab-ai-workshop+carmen@berkeley.edu,School of Information,none
-Dev Raman,dlab-ai-workshop+dev@berkeley.edu,Political Science,vegan
-Elena Petrova,dlab-ai-workshop+elena@berkeley.edu,Economics,none
-Farid Haddad,dlab-ai-workshop+farid@berkeley.edu,Demography,halal
-Grace Lin,dlab-ai-workshop+grace@berkeley.edu,Psychology,none
-Hugo Martins,dlab-ai-workshop+hugo@berkeley.edu,Statistics,gluten-free
-Imani Washington,dlab-ai-workshop+imani@berkeley.edu,African American Studies,none
-Jonas Berg,dlab-ai-workshop+jonas@berkeley.edu,Linguistics,none
-Keiko Sato,dlab-ai-workshop+keiko@berkeley.edu,Goldman School of Public Policy,vegetarian
-Luis Herrera,dlab-ai-workshop+luis@berkeley.edu,Ethnic Studies,none
-Maya Cohen,dlab-ai-workshop+maya@berkeley.edu,Law,kosher
-Noah Williams,dlab-ai-workshop+noah@berkeley.edu,Education,none
-Priya Venkatesan,dlab-ai-workshop+priya@berkeley.edu,Computational Biology,none
+name,email,affiliation,role,interests,attended_before,dietary_needs
+Alice Nakamura,dlab-ai-workshop+alice@berkeley.edu,Sociology,grad student,text analysis of social media,yes,vegetarian
+Ben Okafor,dlab-ai-workshop+ben@berkeley.edu,Public Health,grad student,survey methods,no,none
+Carmen Delgado,dlab-ai-workshop+carmen@berkeley.edu,School of Information,faculty,human-computer interaction,yes,none
+Dev Raman,dlab-ai-workshop+dev@berkeley.edu,Political Science,grad student,text analysis of legislative speech,no,vegan
+Elena Petrova,dlab-ai-workshop+elena@berkeley.edu,Economics,grad student,causal inference,no,none
+Farid Haddad,dlab-ai-workshop+farid@berkeley.edu,Demography,staff,census data,yes,halal
+Grace Lin,dlab-ai-workshop+grace@berkeley.edu,Psychology,grad student,experiment design,no,none
+Hugo Martins,dlab-ai-workshop+hugo@berkeley.edu,Statistics,faculty,machine learning,yes,gluten-free
+Imani Washington,dlab-ai-workshop+imani@berkeley.edu,African American Studies,grad student,archival research and text analysis,no,none
+Jonas Berg,dlab-ai-workshop+jonas@berkeley.edu,Linguistics,grad student,corpus methods and text analysis,yes,none
+Keiko Sato,dlab-ai-workshop+keiko@berkeley.edu,Goldman School of Public Policy,grad student,program evaluation,no,vegetarian
+Luis Herrera,dlab-ai-workshop+luis@berkeley.edu,Ethnic Studies,undergrad,oral history,no,none
+Maya Cohen,dlab-ai-workshop+maya@berkeley.edu,Law,faculty,legal text analysis,no,kosher
+Noah Williams,dlab-ai-workshop+noah@berkeley.edu,Education,staff,learning analytics,yes,none
+Priya Venkatesan,dlab-ai-workshop+priya@berkeley.edu,Computational Biology,grad student,genomics and machine learning,no,none

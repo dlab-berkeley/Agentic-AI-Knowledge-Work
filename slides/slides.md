@@ -130,6 +130,21 @@ The arc of the day. Each lesson hands the agent a bit more autonomy, and each ti
 
 ---
 
+## How much agent does the task need?
+
+1. Chatbot: it writes, you copy
+2. Agent, approving each step
+3. Agent with a skill
+4. Agent on autopilot
+5. Many agents, high effort
+
+**Least agency necessary.** Move up one rung only after you've watched it work at the current one.
+
+Note:
+The ladder is the day's arc, and it's also a decision rule for their own work. Four questions place a task: does it touch your accounts, can you check the result, how bad is a mistake, will you do it again. Lesson 5 comes back to this with a challenge and the subagent demo. The point to land: more compute is not more answer.
+
+---
+
 ## The agent explains itself
 
 <img class="screenshot" src="assets/mollick-agent-status.png" alt="A dense, jargon-filled agent status report">

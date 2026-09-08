@@ -29,6 +29,7 @@ After this workshop, you will be able to:
 - Delegate document, spreadsheet, calendar, and email tasks to an agent and verify the results.
 - Connect an agent to a service with no plugin (Qualtrics) using an API token stored safely.
 - Install a published skill, and write your own to turn a recurring task into one command.
+- Decide how much autonomy a task needs, and when more compute is worth it.
 
 This workshop does not cover:
 
@@ -51,6 +52,8 @@ We use the **Codex app** (OpenAI's agent, bundled with the ChatGPT app). A free 
 
 The workshop is hands-on: you follow along on your own machine, working in the Codex app.
 
+Several steps involve other participants: you invite each other, reply to each other's invitations, and fill out each other's surveys. In person, that means the people near you. On Zoom, the chat is the room: post there, and pick from what others posted.
+
 First, open this [slide deck](https://dlab-berkeley.github.io/Agentic-AI-Knowledge-Work/slides/).
 
 The [lessons](lessons/) folder has the rest of the workshop materials. Keep them open in a browser tab and copy-paste the prompts as we go:
@@ -61,7 +64,7 @@ The [lessons](lessons/) folder has the rest of the workshop materials. Keep them
 4. [Publish Your Event](lessons/4_Publish_Your_Event.md)
 5. [Beyond Plugins, and Automation](lessons/5_Beyond_Plugins_and_Automation.md)
 
-The [packet](packet/) folder holds the starter materials the lessons use: an event template, an attendee list, a rules file, and a few calendar commitments for fresh accounts. The [skills](skills/) folder has a reference version of the skill you write in lesson 5.
+The [packet](packet/) folder holds the starter materials the lessons use: an event template, an attendee list, a set of simulated replies, a rules file, and calendar commitments and preferences. The [skills](skills/) folder has a reference version of the skill you write in lesson 5.
 
 # Additional Resources
 

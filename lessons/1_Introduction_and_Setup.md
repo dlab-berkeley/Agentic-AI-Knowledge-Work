@@ -155,13 +155,15 @@ For an agent to take actions in your accounts, it has to be connected to them. C
 
 ## 🥊 Challenge 1: Meet Your Agent
 
-Not sure what the agent can do now? *When in doubt, ask the agent.* Start a new conversation and try:
+Not sure what the agent can do now? *When in doubt, ask the agent.* Before you do, write down two things you expect it to say it can do, and one thing you expect it to say it can't.
+
+Start a new conversation and try:
 
 ```
 Gmail, Google Calendar, and Google Drive are connected. What kinds of things can you do for me now? What can't you do?
 ```
 
-What does it tell you? Did it mention anything you didn't expect?
+Compare its answer with your list. Did it mention anything you didn't expect?
 
 <a id='section5'></a>
 
@@ -182,7 +184,7 @@ The rules it will find:
 
 ## Email and calendar
 - Always show me a draft before sending any email or calendar invite, and wait for my approval.
-- Only send email to addresses on the attendee sheet or to the confirmed speaker.
+- Only send email to addresses on the attendee sheet or to the speaker's address in the event doc.
 - Never delete or archive anything without asking.
 - Only read emails that mention "Speaker Series" unless I say otherwise.
 
@@ -196,6 +198,14 @@ The rules it will find:
 ```
 
 🔔 **Question:** Which of these rules would you want in place for your own inbox? Which one would you drop?
+
+Now add one rule of your own. Pick something you would want for your own inbox. Keep it to one sentence.
+
+```
+Add one more rule to AGENTS.md under "Workflow": [YOUR RULE]. Then tell me one moment today when this rule will change what you do.
+```
+
+You will find out in lessons 2 and 3 whether the agent follows it.
 
 💡 **Tip:** `AGENTS.md` steers the agent, but it is not deterministic. Sometimes, instructions can get lost, especially in long conversations. This is why permission settings matter. If you turn `Ask for approval` on, you can always vet what actions the agent takes.
 

@@ -3,7 +3,7 @@
 ### Learning Objectives
 
 - Explain what a skill is, how to install one, and where they can be found in Codex.
-- Use an installed skill to make a flyer.
+- Compare a flyer made with and without a skill.
 - Recognize that an agent can work on plain files with no plugin involved.
 - Describe what ChatGPT Sites does.
 
@@ -29,7 +29,7 @@ Concretely, a skill is just a folder containing a file with instructions. The fi
 
 For Codex, all skills live in a single folder on your computer (for Macs, the default location is `~/.codex/skills/`). When you give the agent a task, it reads the descriptions of the skills it has access to and, if needed, uses one. You can also ask the agent to directly use a skill.
 
-Nothing fancy! Skills are just repeated instructions that an agent knows to look for, if you tell it to, or if it feels like it might need to use it.
+Nothing fancy! Skills are just repeated instructions that an agent knows to look for, when you tell it to or when the task matches the skill's description.
 
 People publish skills the way they publish recipes. There are now [directories](https://www.skills.sh/) of skills you can install. In this part, we're going to install a skill and use it to create a flyer.
 
@@ -39,9 +39,15 @@ People publish skills the way they publish recipes. There are now [directories](
 
 # Install a Skill: The Flyer
 
-Your talk needs a flyer. An agent can make one without a specific skill (try it!). But a skill focused on design principles might improve the quality of the flyer, so let's set one up.
+Your talk needs a flyer. An agent can make one without any skill. Start a **new conversation** and try:
 
-Start a **new conversation**:
+```
+Make a one-page flyer for the talk in the event doc. Include the title, speaker, date, time, location, and a one-sentence hook from the abstract. Save it as flyer-v1.pdf in this project folder.
+```
+
+Open it. Keep it around; you will compare it with the next one. A skill focused on design principles might do better, so let's set one up.
+
+Start another **new conversation**:
 
 ```
 Install the canvas-design skill from https://github.com/anthropics/skills into my Codex skills folder (~/.codex/skills/).
@@ -60,10 +66,12 @@ You might see something like the following:
 Now, let's use it:
 
 ```
-Using the canvas-design skill, make a one-page flyer for the talk in the event doc. Include the title, speaker, date, time, location, and a one-sentence hook from the abstract. Save it as flyer.pdf in this project folder, and put a copy in the Speaker Series folder in Drive.
+Using the canvas-design skill, make a one-page flyer for the talk in the event doc. Include the title, speaker, date, time, location, and a one-sentence hook from the abstract. Save it as flyer-v2.pdf in this project folder, and put a copy in the Speaker Series folder in Drive.
 ```
 
-🔔 **Question:** Compare your flyer with your neighbors'. Do you notice differences? Where do they come from?
+Open both flyers side by side.
+
+🔔 **Question:** What changed between v1 and v2? Open the skill's `SKILL.md` and find the line responsible. Then compare with other participants' flyers: share a screenshot in the chat, or show the people near you. Where do the differences come from?
 
 💡 **Tip:** Notice that this task never touched Gmail or Calendar. The agent read a Google Doc, then worked on a plain file on your computer. Most of what an agent does for you won't need a plugin at all.
 
@@ -75,7 +83,7 @@ Explore the [skill directory](https://www.skills.sh/) (or find a different one -
 
 # 🎬 Demo: Creating an Event Page with ChatGPT Sites (Optional)
 
-**ChatGPT Sites** allows you to build and host a website. The key difference between what you could do before - developing the code for a website is easy - is now, ChatGPT makes it easier to make that webpage live on the internet. You don't have to go through the hassle of finding a hosting platform to host your website.
+**ChatGPT Sites** allows you to build and host a website. Agents could already write the code for a website. Sites also puts it online, so you don't have to find hosting.
 
 ⚠️ **Warning:** Sites requires a paid ChatGPT plan, so this part is a demo. If you're on a paid plan, follow along.
 
