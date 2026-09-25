@@ -36,8 +36,8 @@ The key to having an agent take actions for you is that it has a way of interfac
 
 What if there is no plugin? There are two ways forward.
 
-- **The API.** Most services have one. It is built for programs, so it is fast and reliable. This is the main path in this lesson.
-- **The browser.** The agent opens the web page and clicks through it, the way you would. It works on anything with a web page, and it is the slowest and least reliable way to do a task. We try it in section 5.
+- **The API.** An API allows for a structured way of obtaining data. Many services have one, and agents are very good at using them.
+- **The browser.** The agent opens the web page in your browser and uses it by controlling your mouse, similar to how a human would. It works on anything with a web page, and it is the slowest and least reliable way to do a task (but agents are getting *very* good at computer use). We try it in section 5.
 
 An API, or Application Programming Interface, is effectively a set of standardized rules for how to engage with a particular database or product.
 
