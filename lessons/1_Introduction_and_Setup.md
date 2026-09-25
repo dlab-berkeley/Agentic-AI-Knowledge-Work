@@ -4,8 +4,8 @@
 
 - Distinguish a chat assistant from an agent.
 - Download the Codex app and open the workshop project.
-- Connect Gmail, Google Calendar, and Google Drive, and explain what access you are granting.
-- Create an `AGENTS.md` file that sets the rules for your agent.
+- Connect Gmail, Google Calendar, and Google Drive to Codex.
+- Create an `AGENTS.md` file establishing rules for your agent.
 - Explain what permission settings do and why they matter.
 
 ### Icons Used in This Notebook
@@ -27,13 +27,13 @@
 
 You have probably used a chatbot like ChatGPT or Claude. You type into a box, and the chatbot generates an answer.
 
-Using a chatbot in your workflows often involves a lot of time spent copying and pasting, or attaching and downloading files. If you want feedback on an email, or you need a spreadsheet reviewed, you, as the human, have to transfer the relevant materials to the chatbot so that it can perform the task.
+Using a chatbot in workflows often involves a lot of time spent copying and pasting, or attaching and downloading files. If you want feedback on an email, or you need a spreadsheet reviewed, you, as the human, have to transfer the relevant materials to the chatbot so that it can perform the task.
 
-An **agent** is different in one major way: it can take actions for you. It can read your files, search your inbox, write a document into your Google Drive, put an event on your calendar, and send an email. When using agents, the need to copy and paste content almost vanishes. The agent can take actions to ensure it obtains the relevant context for a task.
+An **agent** is different in one major way: it can take actions for you. It can read your files, search your inbox, write a document into your Google Drive, put an event on your calendar, and send an email. When using agents, there is little need to copy and paste content. The agent can take actions to ensure it obtains the relevant context for a task.
 
 Agents became popular in 2025 because they were so useful for programming. Since then, their uses have become much more general. We'll explore some of those use cases for knowledge work in this workshop. We'll specifically work with [Codex](https://chatgpt.com/codex/), developed by OpenAI.
 
-🔔 **Question:** You ask a chatbot to "invite the lab to Thursday's talk." You ask an agent the same thing. What is the difference in what happens next?
+🔔 **Question:** You ask a chatbot to "invite the lab to Thursday's talk." If you ask an agent to do the same thing, what is the difference in what happens next?
 
 <a id='section2'></a>
 
@@ -73,7 +73,7 @@ At the bottom is the **text box**, where you talk to the agent. Type what you wa
 
 ## Model and Effort
 
-Inside the text box there's a small chip that reads something like `5.6 Sol High`. That's two settings: which **model** is doing the work, and how much **effort** it puts in.
+Inside the text box there's a small chip that reads something like `5.6 Sol High` (new models will come out since this workshop was first developed, so this may be outdated). That's two settings: which **model** is doing the work, and how much **effort** it puts in.
 
 <center>
 <img src="../images/codex-model-select.png" alt="The model picker" width="500">
@@ -83,7 +83,7 @@ Inside the text box there's a small chip that reads something like `5.6 Sol High
 - **Model** is which "brain" you're using. Bigger and newer models are more capable, but use up your usage limits faster.
 - **Effort** is how long the model gets to think. Higher effort helps on hard tasks, and also burns limits faster.
 
-For today, the defaults are fine. If you hit the free tier's usage limits partway through, switch to a smaller model or lower effort rather than stopping.
+For today, the defaults are fine. If you hit the free tier's usage limits partway through, switch to a smaller model or lower effort.
 
 <a id='section3'></a>
 
@@ -106,7 +106,7 @@ The project should now appear under `Projects` in the sidebar.
 
 Inside a project, your work is organized into **conversations**. Hover over your project in the sidebar, and click the `New Conversation` icon to start one.
 
-The paradigm to internalize is **one conversation = one task**. Planning the talk is one task, so it gets one conversation. Inviting attendees is another task, so it gets another conversation. When you move on to a new task, start a new conversation.
+The paradigm to internalize is **one conversation = one task**. Planning the talk is one task, so it gets one conversation. Inviting attendees is another task, so it gets another conversation. When you move on to a new task, start a new conversation. (This is not a hard and fast rule. Models are getting more capable, so it's actually less necessary to switch to a new thread for new tasks, since models are better able to manage context).
 
 - **Files persist across conversations.** Anything the agent created earlier is still in the folder (and in your Drive).
 - **New conversations start without context.** The main thing the agent receives is the contents of `AGENTS.md`. If it needs anything else, it has to search for it.
@@ -127,9 +127,9 @@ Permissions control how much leeway the agent has to take actions on its own. Cl
 
 # Connect Your Google Account
 
-For an agent to take actions in your accounts, it has to be connected to them. Codex does this through **plugins**. We will use plugins to connect Codex to Gmail, Google Calendar, and Google Drive.
+For an agent to take actions in your accounts, it has to be connected to them. Codex does this through **Plugins**. We will use plugins to connect Codex to Gmail, Google Calendar, and Google Drive.
 
-⚠️ **Warning:** Decide now which account you're connecting. If you'd rather not connect your everyday Google account to an AI product, use the fresh account you created before the workshop. If you did not create one, take a moment now to create a fresh Google account.
+⚠️ **Warning:** Decide now which account you're connecting. If you'd rather not connect your everyday Google account to an AI product, use the new account you created before the workshop. If you did not create one, take a moment now to create a new Google account.
 
 1. Click `Plugins` in the sidebar.
 
